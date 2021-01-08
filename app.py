@@ -10,8 +10,8 @@ import streamlit as st
 import numpy as np
 from skimage.io import imread
 from skimage.transform import resize
-import pickle
 from PIL import Image
+import joblib as joblib
 
 
 
@@ -19,7 +19,7 @@ st.set_option("deprecation.showfileUploaderEncoding",False)
 st.title("Image Classifier using Machine Learning")
 st.text('Upload the Image')
 
-model=pickle.load(open("img_model.p","rb"))
+model=joblib.load(open("img_model.p","rb"))
 
 upload_file=st.file_uploader("Choose an image", type="jpg")
 if upload_file is not None:
